@@ -1,11 +1,27 @@
 package br.com.fiap.checkpoint2.dto;
 
+import java.time.LocalDate;
+
+import br.com.fiap.checkpoint2.model.Paciente;
+
 public class PacienteRequestCreate {
     private String nome;
     private String endereco;
     private String bairro;
     private String email;
     private String telefone_completo;
+    private LocalDate dataNascimento;
+
+    public Paciente toModel () {
+        Paciente paciente = new Paciente ();
+        paciente.setNome(nome);
+        paciente.setEndereco(endereco);
+        paciente.setBairro(bairro);
+        paciente.setEmail(email);
+        paciente.setTelefone_completo(telefone_completo);
+        paciente.setDataNascimento(dataNascimento);
+        return paciente;
+    }
 
     public String getNome() {
         return nome;
@@ -36,5 +52,11 @@ public class PacienteRequestCreate {
     }
     public void setTelefone_completo(String telefone_completo) {
         this.telefone_completo = telefone_completo;
+    }
+    public LocalDate getDataNascimento() {
+        return dataNascimento;
+    }
+    public void setDataNascimento(LocalDate dataNascimento) {
+        this.dataNascimento = dataNascimento;
     }
 }
